@@ -80,3 +80,8 @@ private:
         }
     }
 };
+
+template<typename T, typename... Args>
+MySharedPtr<T> makeShared(Args &&... args) {
+    return MySharedPtr<T>(new T(std::forward<Args>(args)...));
+}
