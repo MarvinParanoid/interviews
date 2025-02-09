@@ -39,6 +39,10 @@ class LoggerQueue {
                 tmp.pop();
             }
             if (!running_) {
+                while (!queue_.empty()) {
+                    logger_.log(queue_.front());
+                    queue_.pop();
+                }
                 return;
             }
         }
